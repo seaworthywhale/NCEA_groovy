@@ -1,0 +1,52 @@
+#-------------------------------------------------------------------------------
+# Name:        module2
+# Purpose:
+#
+# Author:      Flo
+#
+# Created:     26/05/2015
+# Copyright:   (c) Flo 2015
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+#!/usr/bin/env python
+
+class Movie:
+
+    def __init__(self, title, quote, spaceships, muldertheory, indiana, largeandannoyingopeningsequenceyouwishwouldjustendallreadyjesushchristidontusuallyswearlikethisbutthatjustreallyticksmeoff):
+        self.title = title
+        self.quote = quote
+        self.spaceships = spaceships
+        self.muldertheory= muldertheory
+        self.indiana = indiana
+        self.largeandannoyingopeningsequenceyouwishwouldjustendallreadyjesushchristidontusuallyswearlikethisbutthatjustreallyticksmeoff = largeandannoyingopeningsequenceyouwishwouldjustendallreadyjesushchristidontusuallyswearlikethisbutthatjustreallyticksmeoff
+
+    def rating_calc(self):
+        rating = 0
+        rating += self.spaceships
+        if len(self.muldertheory) > 10:
+            rating += 3
+        if self.indiana.lower() == "yes" or "maybe":
+            rating += 3
+        if "no" not in self.largeandannoyingopeningsequenceyouwishwouldjustendallreadyjesushchristidontusuallyswearlikethisbutthatjustreallyticksmeoff.lower():
+            rating -= 100000
+        print("OVERALL RATING: " + str(rating))
+
+    def display(self):
+        print("***//FLO'S MOVIE THING\\***")
+        print(".{Is it really worth seeing???}.")
+        print("Title: {}".format(self.title))
+        print("Quote: {}".format(self.quote))
+        print("Spaceship Sightings: {}".format(self.spaceships))
+        print("What Mulder has to say: {}".format(self.muldertheory))
+        print("Does Indiana Jones make an appearance: {}".format(self.indiana))
+        print("Is there a large and annoying opening sequence you wish would just end all ready, Jesus H. Christ I don't usually swear like this but that just really ticks me off: {}".format(self.largeandannoyingopeningsequenceyouwishwouldjustendallreadyjesushchristidontusuallyswearlikethisbutthatjustreallyticksmeoff))
+        self.rating_calc()
+
+
+if __name__ == '__main__':
+
+    m1 = Movie("Space Jam", "Eh what's up Doc?", 5, "It's all true", "No :(", "Holy SHIT yes")
+    m1.display()
+
+    m2 = Movie("The Big Lebowski", "That's just like, your opinion man.", 70, "BOWLING BALLS ARE ALIVE", "Maybe?", "No thank God")
+    m2.display()
