@@ -1,0 +1,40 @@
+#-------------------------------------------------------------------------------
+# Name:        basketball
+# Purpose:
+#
+# Author:      Flo
+#
+# Created:     26/05/2015
+# Copyright:   (c) Flo 2015
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+#!/usr/bin/env python
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+
+class BasketballPlayer:
+
+    def __init__(self, name, games, goals):
+        self.name = name
+        self.goals = goals
+        self.games = games
+
+    def display(self):
+        average = self.goals / self.games
+        print(self.name)
+        print("Games Played: {}".format(self.games))
+        print("Goals Scored: {}".format(self.goals))
+        print("Goal Average: {}".format(average))
+
+player1 = BasketballPlayer("Michael Jordan", 1000, 4000000)
+player2 = BasketballPlayer("Bugs Bunny", 1, 55)
+player3 = BasketballPlayer("Aliens", 1, 50)
+player4 = BasketballPlayer("Me", 3, 90)
+player1.display()
+player2.display()
+player3.display()
+player4.display()
