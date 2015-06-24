@@ -1,0 +1,105 @@
+#-------------------------------------------------------------------------------
+# Name:        Book Catalogue Interface
+# Purpose:
+#
+# Author:      hillyerbrandtf
+#
+# Created:     25/06/2015
+# Copyright:   (c) hillyerbrandtf 2015
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+#!/usr/bin/env python
+
+#load libraries
+from tkinter import *
+import tkinter.messagebox  #need to import this
+import string
+
+def process_data_window():
+#Window Closing code
+    def Close():
+        root.destroy()
+#Window Configuration
+    root = Tk()
+    root.geometry('450x450+50+30')
+    root.title('Book Info')
+    root.configure(background = '#082017')
+
+    #Text Variables
+    titleText = title.get().title()
+    stockText = stock.get()
+    genreText = genre.get().title()
+
+    #Info Labels
+    titleInfo = Label(root,text=titleText,fg='#68d250',bg='#082017')
+    titleInfo.pack()
+
+    stockInfo = Label(root,text=stockText,fg='#68d250',bg='#082017')
+    stockInfo.pack()
+
+    genreInfo = Label(root,text=genreText,fg='#68d250',bg='#082017')
+    genreInfo.pack()
+
+    #QUIT button ie event to quit
+    qbutton = Button(root,text="POWER OFF",command=Close, fg='#68d250',bg='#082017', activebackground= '#68d250', activeforeground ='#082017')
+    qbutton.pack()
+
+    #Main Loop
+    root.mainloop()
+
+
+def Quit():
+    mExit = messagebox.askyesno(title="Turn off Autopilot", message="Are you sure you want to turn off Autopilot? Please don't do this Dave.")
+    print(mExit)
+    if mExit >0: #1 is True 0 is False
+        mGui.destroy()
+    return
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+
+mGui=Tk()
+#variable types that are used by tkinter
+title=StringVar()
+stock=IntVar()
+genre=StringVar()
+
+#primary window
+mGui.geometry('450x450+50+30') #+50 +30 give starting postion on screen
+mGui.title('DT300 Test suite')
+mGui.configure(background = '#082017')
+
+#Header Label
+mlabel = Label(mGui,text='VAULT-TEC LIBRARIES',fg='#68d250',bg='#082017')
+mlabel.pack()
+
+#Data Collection
+titleLabel = Label(mGui,text='Title:',fg='#68d250',bg='#082017')
+titleLabel.pack()
+titleEntry = Entry(mGui,textvariable=title,fg='#68d250',bg='#082017')
+titleEntry.insert(10,"No Name Detected")
+titleEntry.pack()
+
+stockLabel = Label(mGui,text='Number of copies in stock:',fg='#68d250',bg='#082017')
+stockLabel.pack()
+stockEntry = Entry(mGui, textvariable=stock,fg='#68d250',bg='#082017')
+stockEntry.insert(10,1)
+stockEntry.pack()
+
+genreLabel = Label(mGui, text='Genre of the book:',fg='#68d250',bg='#082017')
+genreLabel.pack()
+genreEntry=OptionMenu(mGui, genre, "Science Fiction", "Sport", "Biography", "Political Thriller", "Survival Guide")
+genreEntry.pack()
+
+#OK button is used to activate process_data_window
+mbutton = Button(mGui,text="PROCESS DATA",command=process_data_window, fg='#68d250',bg='#082017', activebackground= '#68d250', activeforeground ='#082017')
+mbutton.pack()
+
+#QUIT button
+qbutton = Button(mGui,text="POWER OFF",command=Quit, fg='#68d250',bg='#082017', activebackground= '#68d250', activeforeground ='#082017')
+qbutton.pack()
+
+mGui.mainloop()
