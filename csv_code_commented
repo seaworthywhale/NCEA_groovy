@@ -1,0 +1,37 @@
+#-------------------------------------------------------------------------------
+# Name:        module1
+# Purpose:
+#
+# Author:      hillyerbrandtf
+#
+# Created:     24/08/2015
+# Copyright:   (c) hillyerbrandtf 2015
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+#!/usr/bin/env python
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+
+#Variable where the data is stored
+recordlist = [["edwin",32,"M"],["mary",45,"F"]]
+#importing modules into the code for more comprehensive/intuitive code
+import math
+#csv is what allows us to use modules such as 'ofile'
+import csv
+#put the file name here so it's easier to change the file you put the data into
+file_name = 'progs.csv'
+
+#Telling the computer to go find a file by the name of 'progs.csv' and write over anything in there
+ofile = open(file_name, 'w')
+#writer is telling the computer that the file is a csv and to separate each item with a comma, and not to skip a line.
+writer = csv.writer(ofile, delimiter=',', lineterminator='\n')
+#a for loop saying to run the following code as many times as there are items in the array 'recordlist'
+for i in range(0,len(recordlist)):
+    #telling the computer to write each of the items in the items in 'recordlist' separately
+    writer.writerow([recordlist[i][0], recordlist[i][1], recordlist[i][2]])
+#close the file and end the program
+ofile.close()
